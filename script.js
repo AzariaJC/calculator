@@ -24,6 +24,8 @@ function operate(a, operator, b) {
     return multiply(a, b);
   } else if (operator === '/') {
     return divide(a, b);
+  } else {
+    return "ERROR"
   };
 };
 
