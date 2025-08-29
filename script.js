@@ -16,8 +16,16 @@ const divide = function (a, b) {
 };
 
 function operate(a, operator, b) {
-  let operator = 
-}
+  if (operator === '+') {
+    return add(a, b);
+  } else if (operator === '-') {
+    return subtract(a, b); 
+  } else if (operator === '*') {
+    return multiply(a, b);
+  } else if (operator === '/') {
+    return divide(a, b);
+  };
+};
 
 // for testing in node.js
 module.exports = {
