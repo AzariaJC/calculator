@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  height: 300px;
+  width: 200px;
+};
+
+#calculatorBody {
+    display: flex;
+    flex-direction: column;
+};
+
+#answerDisplay {
+    display: flex;
+    height: 75px;
+    width: 200px;
+};
+
+#buttonContainer {
+    display: flex;
+    flex-direction: column;
+}
