@@ -9,15 +9,18 @@ body {
 #calculatorBody {
     display: flex;
     flex-direction: column;
+    min-height: 100%;
 };
 
 #answerDisplay {
     display: flex;
-    height: 75px;
+    flex-direction: column;
+    min-height: 75px;
     width: 200px;
 };
 
 #buttonContainer {
     display: flex;
     flex-direction: column;
+    min-height: 100%;
 }
