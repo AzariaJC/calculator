@@ -21,6 +21,10 @@ body {
 
 #buttonContainer {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    min-height: 100%;
+    min-height: 100px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
