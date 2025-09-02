@@ -6,8 +6,6 @@ body {
     width: 200px;
 }
 
-;
-
 #calculatorBody {
     display: flex;
 }
@@ -18,7 +16,6 @@ body {
     min-height: 100%;
 }
 
-;
 
 #answerDisplay {
     display: flex;
@@ -27,12 +24,10 @@ body {
     width: 200px;
 }
 
-;
 
 #buttonContainer {
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 33%;
     flex-direction: row;
     min-height: 100px;
     align-content: center;
@@ -47,11 +42,11 @@ body {
 .numbersOneThruNine {
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 33%;
+    flex: 0 0 40%;
     flex-direction: row;
     align-content: center;
-    min-height: 100%;
+    max-height: 100%;
     justify-content: center;
     padding: 2px;
-    margin: 2px;
+    margin: 10px;
 }
