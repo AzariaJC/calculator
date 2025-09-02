@@ -29,6 +29,9 @@ function operate(a, operator, b) {
   };
 };
 
+const numberButton = document.getElementsByClassName('number');
+
+
 // for testing in node.js
 module.exports = {
   add,

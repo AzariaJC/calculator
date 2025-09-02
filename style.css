@@ -20,8 +20,13 @@ body {
 #answerDisplay {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 75px;
     width: 200px;
+    border-color: black;
+    border-width: 2px;
+    background-color: beige;
 }
 
 
@@ -35,14 +40,15 @@ body {
     justify-content: center;
 }
 
-.numbers {
+.number {
     display: flex;
+    margin: 2px;
 }
 
 .numbersOneThruNine {
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 40%;
+    flex: 0 0 50%;
     flex-direction: row;
     align-content: center;
     max-height: 100%;
