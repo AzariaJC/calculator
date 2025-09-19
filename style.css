@@ -2,32 +2,53 @@ body {
     display: flex;
     justify-items: center;
     flex-direction: column;
-    height: 300px;
-    width: 200px;
+
 }
-
-
 
 #answerDisplay {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    min-height: 75px;
-    width: 200px;
-    border-color: black;
-    border-width: 2px;
-    background-color: beige;
+    flex-direction: row;
+    min-height: 100px;
+    margin-bottom: 10px;
 }
 
-#rowOneButtons {
+.rowOneButtons {
     display: flex;
     justify-content: center;
     flex-direction: row;
 }
 
-#rowTwoButtons {
+.rowTwoButtons {
     display: flex;
     justify-content: center;
     flex-direction: row;
+}
+
+.rowThreeButtons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.rowFourButtons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.rowFiveButtons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+button {
+    height: 85px;
+    width: 85px;
+    border-radius: 10%;
+    margin: 2px;
+    font-size: 40px;
+    color: white; 
+    background-color: deeppink;
 }
