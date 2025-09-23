@@ -29,15 +29,6 @@ function operate(a, operator, b) {
   };
 };
 
-clearButton.addEventListener("click", clearDisplay());
-
-function clearDisplay() {
-  displayText.textContent = "";
-};
-
-function updateDisplay(content) {
-  displayText.textContent += content;
-};
 
 const displayText = document.getElementById('answerDisplay');
 const numberButtons = document.getElementsByClassName('number');
@@ -47,6 +38,22 @@ const equalButton = document.querySelector('.equal');
 let a = '';
 let b = '';
 let operator = '';
+
+clearButton.addEventListener("click", () => {
+  displayText.textContent = "";
+  a = ""
+  b = ""
+  operator = ''
+});
+
+function clearDisplay() {
+  displayText.textContent = "";
+};
+
+function updateDisplay(content) {
+  displayText.textContent += content;
+};
+
 
 for (const numberButton of numberButtons) {
   numberButton.addEventListener("click", () => {
