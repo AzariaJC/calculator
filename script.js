@@ -19,7 +19,7 @@ function operate(a, operator, b) {
   if (operator === '+') {
     return add(a, b);
   } else if (operator === '-') {
-    return subtract(a, b); 
+    return subtract(a, b);
   } else if (operator === '*') {
     return multiply(a, b);
   } else if (operator === '/') {
@@ -29,12 +29,16 @@ function operate(a, operator, b) {
   };
 };
 
-const displayText= document.getElementById('answerDisplay');
-const numberButtons= document.getElementsByClassName('number');
+const displayText = document.getElementById('answerDisplay');
+const numberButtons = document.getElementsByClassName('number');
 
-button.addEventListener("click", () => {
-     displayText.textContent = button.value;
+for(const numberButton of numberButtons){
+  numberButton.addEventListener("click", () => {
+    const value = numberButton.value;
+    displayText.textContent += value;
   });
+}
+
 
 
 
