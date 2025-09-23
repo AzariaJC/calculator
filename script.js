@@ -29,29 +29,42 @@ function operate(a, operator, b) {
   };
 };
 
-function clearDisplay(){
-  clearButton.addEventListener("click", () => {
-    displayText.textContent = ""
-  })
-}
+function clearButtonDisplay() {
+  clearButton.addEventListener("click", clearDisplay)
+};
 
-function updateDisplay(content){
-  displayText.textContent = content;
+function clearDisplay() {
+  displayText.textContent = "";
+};
+
+function updateDisplay(content) {
+  displayText.textContent += content;
 };
 
 const displayText = document.getElementById('answerDisplay');
 const numberButtons = document.getElementsByClassName('number');
 const clearButton = document.getElementsByClassName('clear');
 const operatorButtons = document.getElementsByClassName('operator');
+let a = '';
+let b = '';
+let operator = '';
 
-
-for(const numberButton of numberButtons){
+for (const numberButton of numberButtons) {
   numberButton.addEventListener("click", () => {
     const value = numberButton.value;
     updateDisplay(value);
   });
 }
 
+for (const operatorButton of operatorButtons) {
+  operatorButton.addEventListener("click", () => {
+    a = displayText.textContent;
+    clearDisplay();
+    b = displayText.textContent;
+    console.log(b);
+    operation = operatorButton.value;
+  });
+};
 
 
 
