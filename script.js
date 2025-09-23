@@ -29,13 +29,26 @@ function operate(a, operator, b) {
   };
 };
 
+function clearDisplay(){
+  clearButton.addEventListener("click", () => {
+    displayText.textContent = ""
+  })
+}
+
+function updateDisplay(content){
+  displayText.textContent = content;
+};
+
 const displayText = document.getElementById('answerDisplay');
 const numberButtons = document.getElementsByClassName('number');
+const clearButton = document.getElementsByClassName('clear');
+const operatorButtons = document.getElementsByClassName('operator');
+
 
 for(const numberButton of numberButtons){
   numberButton.addEventListener("click", () => {
     const value = numberButton.value;
-    displayText.textContent += value;
+    updateDisplay(value);
   });
 }
 
