@@ -29,8 +29,14 @@ function operate(a, operator, b) {
   };
 };
 
+const displayText= document.getElementById('answerDisplay');
 const numberButtons= document.getElementsByClassName('number');
 
+numberButtons.forEach(button => {
+  button.addEventListener("click", () => {
+     displayText.textContent = button.value;
+  });
+});
 
 
 
