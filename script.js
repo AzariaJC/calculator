@@ -18,6 +18,10 @@ const sqrt = function (a) {
   let root = Math.sqrt(a);
   return root;
 };
+const percentage = function (a) {
+  let percent = (a * 100);
+  return percent;
+};
 
 function operate(a, operator, b) {
   if (operator === '+') {
@@ -58,7 +62,7 @@ const operatorButtons = document.getElementsByClassName('operator');
 const equalButton = document.querySelector('.calculate');
 const minusButton = document.querySelector('.operator.minus');
 const sqrtButton = document.querySelector('.sqrt');
-
+const percentButton = document.querySelector()
 let a = '';
 let b = '';
 let operator = '';
