@@ -34,10 +34,16 @@ const displayText = document.getElementById('answerDisplay');
 const numberButtons = document.getElementsByClassName('number');
 const clearButton = document.querySelector('.clear');
 const operatorButtons = document.getElementsByClassName('operator');
-const equalButton = document.querySelector('.equal');
+const equalButton = document.querySelector('.calculate');
 let a = '';
 let b = '';
 let operator = '';
+
+function clearVariables() {
+  a = "";
+  b = "";
+  operator = "";
+}
 
 clearButton.addEventListener("click", () => {
   displayText.textContent = "";
@@ -64,13 +70,26 @@ for (const numberButton of numberButtons) {
 
 for (const operatorButton of operatorButtons) {
   operatorButton.addEventListener("click", () => {
-    a = displayText.textContent;
-    clearDisplay();
-    operator = operatorButton.value;
+    if (a === "") { //starting fresh, nothing clicked
+      a = displayText.textContent;
+      clearDisplay();
+      operator = operatorButton.value;
+    } else { //if you are trying to add more than two numbers
+      b = displayText.textContent
+      clearDisplay();
+      a = operate(Number(a), operator, Number(b)); //stores the outcome of the first operation, so when you perform another operation you can then click equals to get a 'final' answer
+    }
   });
 };
 
-
+equalButton.addEventListener("click", () => {
+  b = displayText.textContent;
+  clearDisplay();
+  displayText.textContent = operate(Number(a), operator, Number(b));
+  console.log(a);
+  console.log(b);
+  clearVariables();
+});
 
 
 
