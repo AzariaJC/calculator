@@ -37,6 +37,10 @@ function operate(a, operator, b) {
   };
 };
 
+function getPercent(a) {
+  return percentage(a)
+};
+
 function squareRoot(a) {
   return sqrt(a);
 };
@@ -62,16 +66,24 @@ const operatorButtons = document.getElementsByClassName('operator');
 const equalButton = document.querySelector('.calculate');
 const minusButton = document.querySelector('.operator.minus');
 const sqrtButton = document.querySelector('.sqrt');
-const percentButton = document.querySelector()
+const percentButton = document.querySelector('.percent')
+
 let a = '';
 let b = '';
 let operator = '';
 
+percentButton.addEventListener("click", () => {
+  a = displayText.textContent;
+  clearDisplay();
+  displayText.textContent = getPercent(Number(a));
+  clearVariables();
+});
+
 sqrtButton.addEventListener("click", () => {
   a = displayText.textContent;
   clearDisplay();
-  console.log(a);
   displayText.textContent = squareRoot(Number(a));
+  clearVariables();
 });
 
 clearButton.addEventListener("click", () => {
@@ -99,7 +111,7 @@ for (const numberButton of numberButtons) {
 for (const operatorButton of operatorButtons) {
   operatorButton.addEventListener("click", () => {
     if (operatorButton.value === "-" && displayText.textContent === "") {
-        displayText.textContent = "-";
+      displayText.textContent = "-";
     } else if (a === "") { //starting fresh, nothing clicked
       a = displayText.textContent;
       clearDisplay();
