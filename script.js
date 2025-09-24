@@ -48,6 +48,7 @@ const numberButtons = document.getElementsByClassName('number');
 const clearButton = document.querySelector('.clear');
 const operatorButtons = document.getElementsByClassName('operator');
 const equalButton = document.querySelector('.calculate');
+const minusButton = document.querySelector('.operator.minus');
 
 let a = '';
 let b = '';
@@ -92,6 +93,11 @@ for (const operatorButton of operatorButtons) {
   });
 };
 
+minusButton.addEventListener("click", () => {
+  if (displayText.textContent === "") {
+    displayText.textContent = "-";
+  };
+});
 
 
 
