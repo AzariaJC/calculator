@@ -14,6 +14,10 @@ const divide = function (a, b) {
   let dividend = a / b;
   return dividend;
 };
+const sqrt = function (a) {
+  let root = Math.sqrt(a);
+  return root;
+};
 
 function operate(a, operator, b) {
   if (operator === '+') {
@@ -29,19 +33,23 @@ function operate(a, operator, b) {
   };
 };
 
+function squareRoot(a) {
+  return sqrt(a);
+};
+
 function clearDisplay() {
   displayText.textContent = "";
 };
 
 function updateDisplay(content) {
   displayText.textContent += content;
-}; 
+};
 
 function clearVariables() {
   a = "";
   b = "";
   operator = "";
-}; 
+};
 
 const displayText = document.getElementById('answerDisplay');
 const numberButtons = document.getElementsByClassName('number');
@@ -49,11 +57,18 @@ const clearButton = document.querySelector('.clear');
 const operatorButtons = document.getElementsByClassName('operator');
 const equalButton = document.querySelector('.calculate');
 const minusButton = document.querySelector('.operator.minus');
+const sqrtButton = document.querySelector('.sqrt');
 
 let a = '';
 let b = '';
 let operator = '';
 
+sqrtButton.addEventListener("click", () => {
+  a = displayText.textContent;
+  clearDisplay();
+  console.log(a);
+  displayText.textContent = squareRoot(Number(a));
+});
 
 clearButton.addEventListener("click", () => {
   displayText.textContent = "";
@@ -66,8 +81,6 @@ equalButton.addEventListener("click", () => {
   b = displayText.textContent;
   clearDisplay();
   displayText.textContent = operate(Number(a), operator, Number(b));
-  console.log(a);
-  console.log(b);
   clearVariables();
 });
 
@@ -81,11 +94,9 @@ for (const numberButton of numberButtons) {
 
 for (const operatorButton of operatorButtons) {
   operatorButton.addEventListener("click", () => {
-    if (operatorButton.value === "-") {
-      if (displayText.textContent === "" && operator === "") {
-        displayText.textContent = "-"
-      };
-    } else if(a === "") { //starting fresh, nothing clicked
+    if (operatorButton.value === "-" && displayText.textContent === "") {
+        displayText.textContent = "-";
+    } else if (a === "") { //starting fresh, nothing clicked
       a = displayText.textContent;
       clearDisplay();
       operator = operatorButton.value;
