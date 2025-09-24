@@ -81,8 +81,8 @@ for (const numberButton of numberButtons) {
 
 for (const operatorButton of operatorButtons) {
   operatorButton.addEventListener("click", () => {
-    if (operatorButton.value === "-" && operator === "") {
-      if (displayText.textContent === "") {
+    if (operatorButton.value === "-") {
+      if (displayText.textContent === "" && operator === "") {
         displayText.textContent = "-"
       };
     } else if(a === "") { //starting fresh, nothing clicked
