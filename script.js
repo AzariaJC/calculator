@@ -87,10 +87,8 @@ sqrtButton.addEventListener("click", () => {
 });
 
 clearButton.addEventListener("click", () => {
-  displayText.textContent = "";
-  a = ""
-  b = ""
-  operator = ''
+  clearDisplay();
+  clearVariables();
 });
 
 equalButton.addEventListener("click", () => {
