@@ -118,9 +118,6 @@ for (const operatorButton of operatorButtons) {
       b = displayText.textContent
       clearDisplay();
       a = operate(Number(a), operator, Number(b)); //stores the outcome of the first operation, so when you perform another operation you can then click equals to get a 'final' answer
-      console.log(a);
-      console.log(b);
-      console.log(operator);
     }
   });
 };
