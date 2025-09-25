@@ -6,7 +6,7 @@ body {
     min-height: 100vh;
     background-color: grey;
 
-}
+};
 
 .calculator {
   display: flex;
@@ -14,11 +14,12 @@ body {
   align-items: center;
   background-color: black;
   min-width: 356px;
-}
+};
+
  .rows {
   display: flex;
   flex-direction: column;
-}
+};
 
 #answerDisplay {
     display: flex;
@@ -35,19 +36,19 @@ body {
     text-align: right;
     margin: 10px;
     text-overflow: clip;
-}
+};
 
 .rowOneButtons {
     display: flex;
     justify-content: center;
     flex-direction: row;
-}
+};
 
 .rowTwoButtons {
     display: flex;
     justify-content: center;
     flex-direction: row;
-}
+};
 
 .rowThreeButtons {
     display: flex;

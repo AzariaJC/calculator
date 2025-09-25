@@ -8,19 +8,28 @@ const subtract = function (a, b) {
 };
 const multiply = function (a, b) {
   let product = a * b;
-  return product;
+  let productRounded = roundToDecimal(product, 10);
+  return productRounded;
 };
 const divide = function (a, b) {
   let dividend = a / b;
-  return dividend;
+  let dividendRounded = roundToDecimal(dividend, 10);
+  return dividendRounded;
 };
 const sqrt = function (a) {
   let root = Math.sqrt(a);
-  return root;
+  let rootRounded = roundToDecimal(root, 10);
+  return rootRounded;
 };
 const percentage = function (a) {
-  let percent = (a * 100);
-  return percent;
+  let percent = (a / 100);
+  let percentRounded = roundToDecimal(percent, 10);
+  return percentRounded;
+};
+
+function roundToDecimal(num, decimalPlaces) {
+  const multiplier = Math.pow(10, decimalPlaces);
+  return Math.round(num * multiplier) / multiplier;
 };
 
 function operate(a, operator, b) {
@@ -45,12 +54,12 @@ function squareRoot(a) {
   return sqrt(a);
 };
 
-function clearDisplay() {
-  displayText.textContent = "";
+function clearInput() {
+  input = "";
 };
 
-function updateDisplay(content) {
-  displayText.textContent += content;
+function updateInput(content) {
+  input += content;
 };
 
 function clearVariables() {
@@ -71,54 +80,63 @@ const percentButton = document.querySelector('.percent')
 let a = '';
 let b = '';
 let operator = '';
+let input = "";
 
 percentButton.addEventListener("click", () => {
-  a = displayText.textContent;
-  clearDisplay();
-  displayText.textContent = getPercent(Number(a));
+  a = input;
+  clearInput();
+  input = getPercent(Number(a));
   clearVariables();
 });
 
 sqrtButton.addEventListener("click", () => {
-  a = displayText.textContent;
-  clearDisplay();
-  displayText.textContent = squareRoot(Number(a));
+  a = input;
+  clearInput();
+  input = squareRoot(Number(a));
   clearVariables();
 });
 
 clearButton.addEventListener("click", () => {
-  clearDisplay();
+  clearInput();
   clearVariables();
+  displayText.textContent = input;
 });
 
 equalButton.addEventListener("click", () => {
-  b = displayText.textContent;
-  clearDisplay();
-  displayText.textContent = operate(Number(a), operator, Number(b));
+  b = input;
+  clearInput();
+  input = operate(Number(a), operator, Number(b));
+  displayText.textContent = input;
   clearVariables();
 });
-
 
 for (const numberButton of numberButtons) {
   numberButton.addEventListener("click", () => {
     const value = numberButton.value;
-    updateDisplay(value);
+    updateInput(value);
+    displayText.textContent = input;
   });
 };
 
 for (const operatorButton of operatorButtons) {
   operatorButton.addEventListener("click", () => {
-    if (operatorButton.value === "-" && displayText.textContent === "") {
-      displayText.textContent = "-";
-    } else if (a === "") { //starting fresh, nothing clicked
-      a = displayText.textContent;
-      clearDisplay();
+    if (operatorButton.value === "-" && input === "") {
+      input = "-";
+      displayText.textContent = input;
+    } else if (a === "") {
+      a = input;
+      displayText.textContent = input;
+      clearInput();
       operator = operatorButton.value;
-    } else { //if you are trying to add more than two numbers
-      b = displayText.textContent
-      clearDisplay();
-      a = operate(Number(a), operator, Number(b)); //stores the outcome of the first operation, so when you perform another operation you can then click equals to get a 'final' answer
-    }
+    } else {
+      b = input;
+      displayText.textContent = input;
+      clearInput();
+      a = operate(Number(a), operator, Number(b));
+      operator = operatorButton.value;
+      b = "";
+      displayText.textContent = a;
+    };
   });
 };
 
