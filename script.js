@@ -75,7 +75,8 @@ const operatorButtons = document.getElementsByClassName('operator');
 const equalButton = document.querySelector('.calculate');
 const minusButton = document.querySelector('.operator.minus');
 const sqrtButton = document.querySelector('.sqrt');
-const percentButton = document.querySelector('.percent')
+const percentButton = document.querySelector('.percent');
+const decimalButton = document.querySelector('.decimal');
 
 let a = '';
 let b = '';
@@ -108,6 +109,12 @@ equalButton.addEventListener("click", () => {
   input = operate(Number(a), operator, Number(b));
   displayText.textContent = input;
   clearVariables();
+});
+
+decimalButton.addEventListener("click", () => {
+  const value = decimalButton.value;
+  updateInput(value);
+  displayText.textContent = input;
 });
 
 for (const numberButton of numberButtons) {
