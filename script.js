@@ -113,8 +113,12 @@ equalButton.addEventListener("click", () => {
 
 decimalButton.addEventListener("click", () => {
   const value = decimalButton.value;
-  updateInput(value);
-  displayText.textContent = input;
+  if (displayText.textContent.includes(".")) {
+    decimalButton.disabled = true;
+  } else {
+    updateInput(value);
+    displayText.textContent = input;
+  };
 });
 
 for (const numberButton of numberButtons) {
@@ -127,6 +131,7 @@ for (const numberButton of numberButtons) {
 
 for (const operatorButton of operatorButtons) {
   operatorButton.addEventListener("click", () => {
+    decimalButton.disabled = false;
     if (operatorButton.value === "-" && input === "") {
       input = "-";
       displayText.textContent = input;
